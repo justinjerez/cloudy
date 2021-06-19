@@ -1,9 +1,19 @@
-import './App.css';
+import React from 'react'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { Provider } from './Context'
 
-function App() {
+
+const App = () => {
   return (
-    <div className="App">
-    </div>
+    <Provider>
+      <Router>
+        <div className="App">
+          <Switch>
+            
+          </Switch>
+        </div>
+      </Router>
+    </Provider>
   );
 }
 
