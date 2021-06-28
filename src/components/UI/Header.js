@@ -5,7 +5,7 @@ import SearchBar from './SearchBar'
 
 function Header() {
     const checkUrl = () => {
-        if(window.location.pathname === '/weather')
+        if (window.location.pathname === '/weather')
             return true
 
         return false

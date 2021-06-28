@@ -14,17 +14,11 @@ function WeatherPage() {
 
     return (
         <WeatherPageContainer>
-            <CurrentWeather 
-                condition="Sunny"
-                temperature="26"
-                humidity="87"
-            />
+            <CurrentWeather />
         </WeatherPageContainer>
     )
 }
 
 export default WeatherPage
 
-const WeatherPageContainer = styled.div`
-
-`
+const WeatherPageContainer = styled.div``
