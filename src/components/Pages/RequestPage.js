@@ -9,6 +9,17 @@ function RequestPage(props) {
     const [location, setLocation] = useState('')
     const { weather, getWeather } = useContext(Context)
 
+    const getLocation = () => {
+        if (navigator.geolocation) {
+            navigator.geolocation.watchPosition((position) => {
+                setLocation(`${position.coords.latitude}, ${position.coords.longitude}`)
+                if (location !== '') {
+                    getWeather(location)
+                }
+            });
+        }
+    }
+
     const onSubmit = (e, location) => {
         e.preventDefault()
 
@@ -21,6 +32,7 @@ function RequestPage(props) {
         if (location !== '') {
             history.push('/weather')
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [weather])
 
     return (
@@ -29,7 +41,6 @@ function RequestPage(props) {
                 <img src="img/031-weather forecast.svg" alt="Location" />
                 <ContentInformation>
                     <ContentTitle>We need your location to make this work.</ContentTitle>
-                    <ContentDescription>Please write your city or country name down below:</ContentDescription>
                     <form action="" onSubmit={(e) => { onSubmit(e, location) }}>
                         <Input
                             type="text"
@@ -41,13 +52,15 @@ function RequestPage(props) {
                             required
                         />
                         <Button>
-
                             Continue
                         </Button>
                     </form>
+                    <Button onClick={getLocation}>
+                        Use Location Instead
+                    </Button>
                 </ContentInformation>
             </ContentContainer>
-        </RequestPageContainer >
+        </RequestPageContainer>
     )
 }
 
@@ -75,15 +88,14 @@ const ContentContainer = styled.div`
     flex-direction: column;
     height: 100%;
     padding: 0 3rem;
-    margin-top: -10rem;
     align-items: center;
     justify-content: center;
     text-align: center;
 
     > img {
-        width: 15rem;
-        height: 15rem;
-        margin-bottom: 2.5rem;
+        width: 20rem;
+        height: 20rem;
+        margin-bottom: 3rem;
     }
 
     @media only screen and (min-width: 769px) {
@@ -104,6 +116,11 @@ const ContentInformation = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 1.5rem;
+
+    > form {
+        margin-bottom: 2rem;
+    }
 
     @media only screen and (min-width: 769px) {
         flex: 1;
@@ -115,11 +132,6 @@ const ContentTitle = styled.h2`
     font-size: 2.8rem;
     font-weight: 500;
     color: var(--color-primary);
-    margin-bottom: 1.5rem;
-`
-
-const ContentDescription = styled.p`
-    color: var(--color-light-gray);
     margin-bottom: 1.5rem;
 `
 

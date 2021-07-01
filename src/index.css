@@ -33,3 +33,41 @@ body {
     font-weight: 400;
     overflow: hidden;
 }
+
+@media only screen and (max-width: 1200px) {
+    html {
+        font-size: 82.5%;
+    }
+}
+
+@media only screen and (max-width: 912px) {
+    html {
+        font-size: 75%;
+    }
+}
+
+
+
+@media only screen and (max-width: 600px) {
+    html {
+        font-size: 62.5%;
+    }
+}
+
+@media only screen and (max-height: 800px) and (max-width: 400px){
+    html {
+        font-size: 50%;
+    }
+}
+
+@media only screen and (max-height: 740px) {
+    html {
+        font-size: 50%;
+    }
+}
+
+@media only screen and (max-height: 600px) {
+    html {
+        font-size: 42%;
+    }
+}

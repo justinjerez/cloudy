@@ -1,15 +1,39 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import styled from 'styled-components'
 
+import Context from './../../Context'
+
 function SearchBar() {
+    const { getWeather } = useContext(Context)
+    const [location, setLocation] = useState('')
     const inputRef = React.createRef()
+
+    const onChange = (e) => {
+        setLocation(e.target.value)
+    }
+
+    const onSubmit = (e) => {
+        e.preventDefault()
+
+        if (location === '') return false
+
+        getWeather(location)
+        setLocation('')
+    }
 
     return (
         <Search>
-            <SearchInput type="text" ref={inputRef} />
-            <SearchButton onClick={() => { inputRef.current.focus() }}>
-                <SearchIcon src="img/search.svg" alt="Magnifying Glass" />
-            </SearchButton>
+            <form onSubmit={onSubmit}>
+                <SearchInput
+                    type="text"
+                    ref={inputRef}
+                    value={location}
+                    onChange={onChange}
+                />
+                <SearchButton onClick={() => { inputRef.current.focus() }}>
+                    <SearchIcon src="img/search.svg" alt="Magnifying Glass" />
+                </SearchButton>
+            </form>
         </Search>
     )
 }
@@ -19,6 +43,12 @@ export default SearchBar
 const Search = styled.div`
     display:flex;
     align-items:center;
+
+    > form {
+        display:flex;
+        align-items:center;
+        justify-content: center;
+    }
 `
 
 const SearchInput = styled.input`
