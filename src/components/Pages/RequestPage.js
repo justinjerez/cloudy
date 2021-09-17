@@ -98,7 +98,7 @@ const ContentContainer = styled.div`
         margin-bottom: 3rem;
     }
 
-    @media only screen and (min-width: 769px) {
+    @media only screen and (min-width: 1200px) {
         flex-direction: row;
         width: 100%;
         padding: 0 5rem;
@@ -122,7 +122,7 @@ const ContentInformation = styled.div`
         margin-bottom: 2rem;
     }
 
-    @media only screen and (min-width: 769px) {
+    @media only screen and (min-width: 1200px) {
         flex: 1;
         width: 80%;
     }
