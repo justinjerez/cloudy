@@ -33,7 +33,7 @@ export default Forecast
 const ForecastContainer = styled.div`
     display: flex;
     justify-content: space-around;
-    padding: 2rem 3rem;
+    padding: 1rem 3rem 2rem 3rem;
 `
 
 const ForecastDay = styled.div`
@@ -59,4 +59,8 @@ const ForecastDay = styled.div`
         font-size: 1.4rem;
     }
 
+    @media only screen and (min-width: 64.75em) {
+        flex-direction: row;
+        gap: 3rem;
+    }
 `

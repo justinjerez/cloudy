@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
+import { useHistory } from "react-router-dom";
 import ClipLoader from "react-spinners/ClipLoader";
 
 import CurrentWeather from './../UI/CurrentWeather'
@@ -8,7 +9,12 @@ import Suntime from './../UI/Suntime'
 import Context from './../../Context'
 
 function WeatherPage() {
-    const { loading } = useContext(Context)
+    const history = useHistory()
+    const { loading, weather } = useContext(Context)
+
+    if (!weather) {
+        history.push('/')
+    }
 
     if (loading) {
         return (
@@ -34,9 +40,10 @@ function WeatherPage() {
 export default WeatherPage
 
 const WeatherPageContainer = styled.div`
+    height: 100%;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    justify-content: space-evenly;
 `
 
 const LoadinScreen = styled.div`

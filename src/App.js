@@ -1,6 +1,6 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-
+import { HashRouter as Router, Route, Switch } from 'react-router-dom'
+import styled from 'styled-components'
 import RequestPage from './components/Pages/RequestPage'
 import WeatherPage from './components/Pages/WeatherPage'
 import Header from './components/UI/Header'
@@ -10,7 +10,7 @@ const App = () => {
   return (
     <Provider>
       <Router>
-        <div className="App">
+        <AppContainer className="App">
           <Switch>
             <Route exact path='/' component={RequestPage} />
             <Route exact path='/weather'>
@@ -18,10 +18,15 @@ const App = () => {
               <WeatherPage />
             </Route>
           </Switch>
-        </div>
+        </AppContainer>
       </Router>
     </Provider>
   );
 }
 
 export default App;
+
+const AppContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`

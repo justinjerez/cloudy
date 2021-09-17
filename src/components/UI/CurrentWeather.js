@@ -49,6 +49,7 @@ const WeatherCondition = styled.h3`
     font-size: 2.2rem;
     font-weight: 400;
     color: var(--color-primary);
+    text-align: center;
 `
 
 const WeatherIcon = styled.img`
