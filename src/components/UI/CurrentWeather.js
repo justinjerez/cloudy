@@ -40,21 +40,27 @@ const CurrentWeatherContainer = styled.div`
 
 const WeatherLocation = styled.h3`
     text-align: center;
+    font-size: 2.2rem;
     background: linear-gradient(91.53deg, var(--color-secondary), var(--color-secondary-dark) 60.66%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 `
 
 const WeatherCondition = styled.h3`
-    font-size: 2.2rem;
+    font-size: 2.4rem;
     font-weight: 400;
     color: var(--color-primary);
     text-align: center;
 `
 
 const WeatherIcon = styled.img`
-    width: 10rem;
-    height: 10rem;
+    width: 20rem;
+    height: 20rem;
+
+    @media only screen and (max-width: 37.5em) {
+        width: 15rem;
+        height: 15rem;
+    }
 `
 
 const WeatherTemperature = styled.h2`
@@ -70,11 +76,11 @@ const WeatherHumidity = styled.div`
 `
 
 const HumidityIcon = styled.img`
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 3.5rem;
+    height: 3.5rem;
 `
 
 const HumidityText = styled.span`
-    font-size: 1.8rem;
+    font-size: 2.2rem;
     color: var(--color-primary);
 `

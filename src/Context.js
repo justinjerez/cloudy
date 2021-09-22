@@ -22,11 +22,9 @@ export const Provider = (props) => {
 
         const url = `https://api.weatherapi.com/v1/forecast.json?key=988ecf5faecf4250846150234210906&q=${location}&days=10&aqi=no&alerts=no`
         const res = await axios.get(url)
+        
         setWeather(res.data)
-
-        setTimeout(() => {
-            setLoading(false)
-        }, 1000)
+        setLoading(false)
     }
 
     return (

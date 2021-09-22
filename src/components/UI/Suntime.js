@@ -6,6 +6,7 @@ import Context from './../../Context'
 function Suntime() {
     const { weather } = useContext(Context)
     const { sunrise, sunset } = weather.forecast.forecastday[0].astro
+
     return (
         <SuntimeContainer>
             <SuntimeComponent>
@@ -13,6 +14,7 @@ function Suntime() {
                 <img src="img/016-sunrise.svg" alt="Sunrise" />
                 <span>{sunrise}</span>
             </SuntimeComponent>
+
             <SuntimeComponent>
                 <h4>Sunset</h4>
                 <img src="img/017-sunset.svg" alt="Sunset" />
@@ -40,12 +42,16 @@ const SuntimeComponent = styled.div`
     gap: 1.5rem;
 
     > h4 {
-        font-size: 1.6rem;
+        font-size: 2.4rem;
         font-weight: 400;
         
     }
 
     > img {
-        width: 10rem;
+        width: 13rem;
+    }
+
+    > span {
+        font-size: 2rem;
     }
 `

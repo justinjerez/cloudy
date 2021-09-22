@@ -33,7 +33,11 @@ export default Forecast
 const ForecastContainer = styled.div`
     display: flex;
     justify-content: space-around;
-    padding: 1rem 3rem 2rem 3rem;
+    padding: 1rem 3rem 8rem 3rem;
+
+    @media only screen and (max-width: 37.5em) {
+        padding: 1rem 3rem 4rem 3rem;
+    }
 `
 
 const ForecastDay = styled.div`
@@ -44,23 +48,23 @@ const ForecastDay = styled.div`
     background-color: var(--color-primary);
     padding: 1.5rem 2rem;
     border-radius: 1.2rem;
-    gap: .75rem;
+    gap: 1.5rem;
 
     > img {
-        width: 4rem;
+        width: 6rem;
     }
 
     > span {
-        font-size: 1.8rem;
+        font-size: 2.2rem;
         font-weight: bold;
     }
 
     > p {
-        font-size: 1.4rem;
+        font-size: 2.2rem;
     }
 
     @media only screen and (min-width: 64.75em) {
         flex-direction: row;
-        gap: 3rem;
+        gap: 5rem;
     }
 `

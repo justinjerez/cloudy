@@ -1,6 +1,7 @@
 import React from 'react'
 import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 import styled from 'styled-components'
+import LandingPage from './components/Pages/LandingPage'
 import RequestPage from './components/Pages/RequestPage'
 import WeatherPage from './components/Pages/WeatherPage'
 import Header from './components/UI/Header'
@@ -12,9 +13,8 @@ const App = () => {
       <Router>
         <AppContainer className="App">
           <Switch>
-            <Route exact path='/' component={RequestPage} />
+            <Route exact path='/' component={LandingPage} />
             <Route exact path='/weather'>
-              <Header />
               <WeatherPage />
             </Route>
           </Switch>
