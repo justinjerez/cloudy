@@ -1,34 +1,35 @@
-import React, { useContext } from 'react'
-import styled from 'styled-components'
+import React, { useContext } from 'react';
+import styled from 'styled-components';
 
-import Context from './../../Context'
+import Context from './../../Context';
 
 function Forecast() {
-    const { weather, printWeatherIcon } = useContext(Context)
-    const forecasts = weather.forecast.forecastday
+    const { weather, printWeatherIcon } = useContext(Context);
+    const forecasts = weather.forecast.forecastday;
 
     return (
         <ForecastContainer>
-            {forecasts.map(forecast => {
-                const code = forecast.day.condition.code
-                const temperature = Math.round(forecast.day.avgtemp_c)
-                const date = new Date(forecast.date).toLocaleDateString('en-Us', {weekday: 'long'})
-                const day = date.substring(0, 3)
-
+            {forecasts.map((forecast) => {
+                const code = forecast.day.condition.code;
+                const temperature = Math.round(forecast.day.avgtemp_c);
+                const date = new Date(forecast.date).toLocaleDateString('en-Us', {
+                    weekday: 'long',
+                });
+                const day = date.substring(0, 3);
 
                 return (
                     <ForecastDay key={day}>
-                        <img src={`img/${printWeatherIcon(code)}`} alt="Weather" />
+                        <img src={`img/${printWeatherIcon(code)}`} alt='Weather' />
                         <span>{temperature}°</span>
                         <p>{day}</p>
                     </ForecastDay>
-                )
+                );
             })}
         </ForecastContainer>
-    )
+    );
 }
 
-export default Forecast
+export default Forecast;
 
 const ForecastContainer = styled.div`
     display: flex;
@@ -38,7 +39,7 @@ const ForecastContainer = styled.div`
     @media only screen and (max-width: 37.5em) {
         padding: 1rem 3rem 4rem 3rem;
     }
-`
+`;
 
 const ForecastDay = styled.div`
     display: flex;
@@ -67,4 +68,4 @@ const ForecastDay = styled.div`
         flex-direction: row;
         gap: 5rem;
     }
-`
+`;

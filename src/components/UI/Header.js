@@ -1,26 +1,30 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
-import SearchBar from './SearchBar'
+import SearchBar from './SearchBar';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 function Header() {
     return (
         <HeaderContainer>
-            <HeaderLogo src="img/cloudy-purple.svg" alt="Logo" />
+            <Link to='/'>
+                <HeaderLogo src='img/cloudy-purple.svg' alt='Logo' />
+            </Link>
+
             <SearchBar />
         </HeaderContainer>
-    )
+    );
 }
 
-export default Header
+export default Header;
 
 const HeaderContainer = styled.header`
     display: flex;
     justify-content: space-between;
     width: 100%;
-    padding: 2.5rem 3rem;
-`
+    padding: 1.5rem 3rem;
+`;
 
 const HeaderLogo = styled.img`
     width: 10rem;
-`
+`;
