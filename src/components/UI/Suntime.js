@@ -47,7 +47,7 @@ const SuntimeComponent = styled.div`
     }
 
     > img {
-        width: 13rem;
+        width: 10rem;
     }
 
     > span {

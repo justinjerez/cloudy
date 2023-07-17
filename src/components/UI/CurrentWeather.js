@@ -19,9 +19,13 @@ function CurrentWeather() {
                 {city}, <br />
                 {country}
             </WeatherLocation>
+
             <WeatherCondition>{condition}</WeatherCondition>
+
             <WeatherIcon src={`img/${printWeatherIcon(code)}`} alt='' />
+
             <WeatherTemperature>{temperature}°</WeatherTemperature>
+
             <WeatherHumidity>
                 <HumidityIcon src='img/022-humidity.svg' />
                 <HumidityText>Humidity: {humidity}%</HumidityText>
@@ -38,7 +42,7 @@ const CurrentWeatherContainer = styled.div`
     align-items: center;
     justify-content: space-evenly;
     padding: 2rem 3rem;
-    gap: 2rem;
+    gap: 1.5rem;
 `;
 
 const WeatherLocation = styled.h3`
@@ -61,8 +65,8 @@ const WeatherCondition = styled.h3`
 `;
 
 const WeatherIcon = styled.img`
-    width: 20rem;
-    height: 20rem;
+    width: 18rem;
+    height: 18rem;
 
     @media only screen and (max-width: 37.5em) {
         width: 15rem;

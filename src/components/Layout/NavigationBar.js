@@ -1,11 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 import Button from '../UI/Button';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 function NavigationBar() {
     return (
         <NavigationBarContainer>
-            <Logo src='img/cloudy-purple.svg' alt='Logo' />
+            <Link to='/'>
+                <Logo src='img/cloudy-purple.svg' alt='Logo' />
+            </Link>
+
             <Button onClick={() => window.scrollTo(0, document.querySelector('#TryIt').offsetTop)}>
                 Try it!
             </Button>
