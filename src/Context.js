@@ -34,7 +34,8 @@ export const Provider = (props) => {
     const getWeather = async (location) => {
         setLoading(true);
 
-        const url = `https://api.weatherapi.com/v1/forecast.json?key=ea89351e0ff6470aa6a151730231707&q=${location}&days=10&aqi=no&alerts=no`;
+        const secret = process.env.REACT_APP_WEATHER_API_SECRET;
+        const url = `https://api.weatherapi.com/v1/forecast.json?key=${secret}&q=${location}&days=10&aqi=no&alerts=no`;
         const res = await axios.get(url);
 
         setWeather(res.data);
