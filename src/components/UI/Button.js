@@ -1,9 +1,8 @@
-// Importing dependencies
-import React, { Fragment } from 'react'
-import styled from 'styled-components'
+import React, { Fragment } from 'react';
+import styled from 'styled-components';
 
 function Button(props) {
-    const { link, theme } = props
+    const { theme } = props;
 
     return (
         <Fragment>
@@ -12,22 +11,19 @@ function Button(props) {
                     {props.children}
                 </Btn>
             ) : (
-                <Btn onClick={props.onClick}>
-                    {props.children}
-                </Btn>
+                <Btn onClick={props.onClick}>{props.children}</Btn>
             )}
-
         </Fragment>
-    )
+    );
 }
 
-export default Button
+export default Button;
 
 const Btn = styled.button`
     font-family: var(--font-family);
     font-weight: bold;
     font-size: 2rem;
-    letter-spacing: .2rem;
+    letter-spacing: 0.2rem;
     text-transform: uppercase;
     text-decoration: none;
     color: #fff;
@@ -38,12 +34,13 @@ const Btn = styled.button`
     outline: none;
     transition: all 0.2s linear;
     text-align: center;
-    background-image: ${props => props.blue ? 'linear-gradient(120deg, var(--color-tertiary), var(--color-tertiary-dark))' :
-        'linear-gradient(90deg, var(--color-secondary), var(--color-secondary-dark))'};
+    background-image: ${(props) =>
+        props.blue
+            ? 'linear-gradient(120deg, var(--color-tertiary), var(--color-tertiary-dark))'
+            : 'linear-gradient(90deg, var(--color-secondary), var(--color-secondary-dark))'};
     cursor: pointer;
-    
 
-    &:hover { 
+    &:hover {
         filter: drop-shadow(0px 8px 10px rgba(0, 0, 0, 0.1));
         transform: translateY(-0.3rem);
     }
@@ -52,4 +49,4 @@ const Btn = styled.button`
         filter: drop-shadow(0px 4px 5px rgba(0, 0, 0, 0.1));
         transform: translateY(0rem);
     }
-`
+`;

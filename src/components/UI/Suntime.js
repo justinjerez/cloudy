@@ -1,30 +1,30 @@
-import React, { useContext } from 'react'
-import styled from 'styled-components'
+import React, { useContext } from 'react';
+import styled from 'styled-components';
 
-import Context from './../../Context'
+import Context from './../../Context';
 
 function Suntime() {
-    const { weather } = useContext(Context)
-    const { sunrise, sunset } = weather.forecast.forecastday[0].astro
+    const { weather } = useContext(Context);
+    const { sunrise, sunset } = weather.forecast.forecastday[0].astro;
 
     return (
         <SuntimeContainer>
             <SuntimeComponent>
                 <h4>Sunrise</h4>
-                <img src="img/016-sunrise.svg" alt="Sunrise" />
+                <img src='img/016-sunrise.svg' alt='Sunrise' />
                 <span>{sunrise}</span>
             </SuntimeComponent>
 
             <SuntimeComponent>
                 <h4>Sunset</h4>
-                <img src="img/017-sunset.svg" alt="Sunset" />
+                <img src='img/017-sunset.svg' alt='Sunset' />
                 <span>{sunset}</span>
             </SuntimeComponent>
         </SuntimeContainer>
-    )
+    );
 }
 
-export default Suntime
+export default Suntime;
 
 const SuntimeContainer = styled.div`
     display: flex;
@@ -32,7 +32,7 @@ const SuntimeContainer = styled.div`
     padding: 2rem 3rem;
     width: 100%;
     justify-content: space-around;
-`
+`;
 
 const SuntimeComponent = styled.div`
     display: flex;
@@ -44,7 +44,6 @@ const SuntimeComponent = styled.div`
     > h4 {
         font-size: 2.4rem;
         font-weight: 400;
-        
     }
 
     > img {
@@ -54,4 +53,4 @@ const SuntimeComponent = styled.div`
     > span {
         font-size: 2rem;
     }
-`
+`;

@@ -1,32 +1,32 @@
-// Importing dependencies
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
-// Importing components
-import Title from '../UI/Typography/Title'
-import Paragraph from '../UI/Typography/Paragraph'
+import Title from '../UI/Typography/Title';
+import Paragraph from '../UI/Typography/Paragraph';
 
 function Devices() {
     return (
         <DevicesSection>
-            <img src="img/devices.svg" alt="Computer and phone with cloudy" />
+            <img src='img/devices.svg' alt='Computer and phone with cloudy' />
             <div>
                 <Title>You can see the weather in all devices with us</Title>
-                <Paragraph>With cloudy you can see the weather any time in any device you want. And the best part is that it is completely <strong>Free</strong>!</Paragraph>
+                <Paragraph>
+                    With cloudy you can see the weather any time in any device you want. And the
+                    best part is that it is completely <strong>Free</strong>!
+                </Paragraph>
             </div>
             <Circle>&nbsp;</Circle>
         </DevicesSection>
-
-    )
+    );
 }
 
-export default Devices
+export default Devices;
 
 const DevicesSection = styled.section`
     position: relative;
     display: flex;
     flex-direction: row;
-    align-items: center;    
+    align-items: center;
     justify-content: space-between;
     height: 100vh;
     gap: 5rem;
@@ -57,16 +57,17 @@ const DevicesSection = styled.section`
         @media only screen and (max-width: 56.25em) {
             max-width: 60%;
 
-            > h2, p {
+            > h2,
+            p {
                 color: white;
             }
         }
-    
+
         @media only screen and (max-width: 37.5em) {
             max-width: 100%;
         }
     }
-`
+`;
 
 const Circle = styled.div`
     position: absolute;
@@ -85,5 +86,4 @@ const Circle = styled.div`
         left: -10%;
         filter: none;
     }
-`
-
+`;

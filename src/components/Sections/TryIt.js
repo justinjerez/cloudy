@@ -1,69 +1,73 @@
-// Importing dependencies
-import React, { useContext, useEffect, useState } from 'react'
-import { useHistory } from "react-router-dom";
-import styled from 'styled-components'
+import React, { useContext, useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import styled from 'styled-components';
 
-// Importing components
-import Title from '../UI/Typography/Title'
-import Paragraph from '../UI/Typography/Paragraph'
-import Button from '../UI/Button'
+import Title from '../UI/Typography/Title';
+import Paragraph from '../UI/Typography/Paragraph';
+import Button from '../UI/Button';
 
-import Context from './../../Context'
-
-
+import Context from './../../Context';
 
 function TryIt() {
-    const history = useHistory()
-    const [location, setLocation] = useState('')
-    const { weather, getWeather } = useContext(Context)
-
+    const history = useHistory();
+    const [location, setLocation] = useState('');
+    const { getWeather } = useContext(Context);
 
     const getLocation = () => {
         if (navigator.geolocation) {
             navigator.geolocation.watchPosition((position) => {
-                const { latitude, longitude } = position.coords
+                const { latitude, longitude } = position.coords;
 
-                setLocation(`${latitude}, ${longitude}`)
+                setLocation(`${latitude}, ${longitude}`);
 
                 if (location !== '') {
-                    getWeather(location)
+                    getWeather(location);
                 }
             });
         }
-    }
+    };
 
     const onSubmit = async (e, location) => {
-        e.preventDefault()
+        e.preventDefault();
 
         if (location !== '') {
-            await getWeather(location)
-            history.push('/weather')
+            await getWeather(location);
+            history.push('/weather');
         }
-    }
+    };
 
     return (
-        <TryItSection id="TryIt">
+        <TryItSection id='TryIt'>
             <Title>Try it out!</Title>
-            <Paragraph>All you need to do is write your country or city name and cloudy will show you how is the weather. Also, you can use geolocation to get you location.</Paragraph>
-            <form onSubmit={(e) => { onSubmit(e, location) }}>
+            <Paragraph>
+                All you need to do is write your country or city name and cloudy will show you how
+                is the weather. Also, you can use geolocation to get you location.
+            </Paragraph>
+            <form
+                onSubmit={(e) => {
+                    onSubmit(e, location);
+                }}
+            >
                 <Input
                     required
-                    type="text"
-                    name="location"
+                    type='text'
+                    name='location'
                     value={location}
-                    autoComplete="off"
-                    placeholder="Your location here..."
+                    autoComplete='off'
+                    placeholder='Your location here...'
                     onChange={(e) => setLocation(e.target.value)}
                 />
                 <Button>Start</Button>
             </form>
-            <Button theme="blue" onClick={getLocation}>Use geolocation</Button>
+            <Button theme='blue' onClick={getLocation}>
+                Use geolocation
+            </Button>
             <Circle>&nbsp;</Circle>
         </TryItSection>
-    )
+    );
 }
 
-export default TryIt
+export default TryIt;
 
 const TryItSection = styled.section`
     position: relative;
@@ -75,7 +79,7 @@ const TryItSection = styled.section`
 
     @media only screen and (max-width: 56.25em) {
         padding: 20rem 0 20rem 0;
-     }
+    }
 
     > h2 {
         margin-bottom: 3rem;
@@ -86,12 +90,12 @@ const TryItSection = styled.section`
         text-align: center;
         margin-bottom: 3rem;
 
-        @media only screen and (max-width: 37.5em) { 
+        @media only screen and (max-width: 37.5em) {
             max-width: 100%;
         }
     }
 
-    > form { 
+    > form {
         display: flex;
         gap: 4rem;
         margin-bottom: 3rem;
@@ -106,7 +110,7 @@ const TryItSection = styled.section`
             gap: 2.5rem;
         }
     }
-`
+`;
 
 const Input = styled.input`
     font-family: var(--font-family);
@@ -118,7 +122,7 @@ const Input = styled.input`
     letter-spacing: 1px;
     padding: 1.5rem 4rem;
     color: var(--color-light-gray);
-`
+`;
 
 const Circle = styled.div`
     position: absolute;
@@ -136,4 +140,4 @@ const Circle = styled.div`
         display: none;
         opacity: 0;
     }
-`
+`;

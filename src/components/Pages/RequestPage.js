@@ -1,73 +1,72 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { useHistory } from "react-router-dom";
-import styled from 'styled-components'
+import React, { useContext, useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import styled from 'styled-components';
 
-import Context from './../../Context'
+import Context from './../../Context';
 
-function RequestPage(props) {
-    const history = useHistory()
-    const [location, setLocation] = useState('')
-    const { weather, getWeather } = useContext(Context)
+function RequestPage() {
+    const history = useHistory();
+    const [location, setLocation] = useState('');
+    const { weather, getWeather } = useContext(Context);
 
     const getLocation = () => {
         if (navigator.geolocation) {
             navigator.geolocation.watchPosition((position) => {
-                setLocation(`${position.coords.latitude}, ${position.coords.longitude}`)
+                setLocation(`${position.coords.latitude}, ${position.coords.longitude}`);
                 if (location !== '') {
-                    getWeather(location)
+                    getWeather(location);
                 }
             });
         }
-    }
+    };
 
     const onSubmit = (e, location) => {
-        e.preventDefault()
+        e.preventDefault();
 
         if (location !== '') {
-            getWeather(location)
+            getWeather(location);
         }
-    }
+    };
 
     useEffect(() => {
         if (location !== '') {
-            history.push('/weather')
+            history.push('/weather');
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [weather])
+    }, [weather]);
 
     return (
         <RequestPageContainer>
             <ContentContainer>
-                <img src="img/031-weather forecast.svg" alt="Location" />
+                <img src='img/031-weather forecast.svg' alt='Location' />
                 <ContentInformation>
                     <ContentTitle>We need your location to make this work.</ContentTitle>
-                    <form action="" onSubmit={(e) => { onSubmit(e, location) }}>
+                    <form
+                        action=''
+                        onSubmit={(e) => {
+                            onSubmit(e, location);
+                        }}
+                    >
                         <Input
-                            type="text"
-                            name="location"
-                            placeholder="City or country name..."
+                            type='text'
+                            name='location'
+                            placeholder='City or country name...'
                             value={location}
                             onChange={(e) => setLocation(e.target.value)}
-                            autoComplete="off"
+                            autoComplete='off'
                             required
                         />
-                        <Button>
-                            Continue
-                        </Button>
+                        <Button>Continue</Button>
                     </form>
-                    <Button onClick={getLocation}>
-                        Use Location Instead
-                    </Button>
+                    <Button onClick={getLocation}>Use Location Instead</Button>
                 </ContentInformation>
             </ContentContainer>
         </RequestPageContainer>
-    )
+    );
 }
 
-export default RequestPage
+export default RequestPage;
 
 /* Styles */
-
 const RequestPageContainer = styled.div`
     display: flex;
     flex-direction: column;
@@ -81,7 +80,7 @@ const RequestPageContainer = styled.div`
         align-items: center;
         justify-content: center;
     }
-`
+`;
 
 const ContentContainer = styled.div`
     display: flex;
@@ -110,7 +109,7 @@ const ContentContainer = styled.div`
             margin-right: 2.5rem;
         }
     }
-`
+`;
 
 const ContentInformation = styled.div`
     display: flex;
@@ -126,25 +125,24 @@ const ContentInformation = styled.div`
         flex: 1;
         width: 80%;
     }
-`
+`;
 
 const ContentTitle = styled.h2`
     font-size: 2.8rem;
     font-weight: 500;
     color: var(--color-primary);
     margin-bottom: 1.5rem;
-`
+`;
 
 const Input = styled.input`
     width: 80%;
-    padding: .5rem 1rem;
+    padding: 0.5rem 1rem;
     font-size: 1.6rem;
     color: var(--color-light-gray);
     border: none;
     border-bottom: 2px solid var(--color-secondary);
     outline: none;
     background-color: transparent;
-
 
     &:focus {
         outline: none;
@@ -155,12 +153,12 @@ const Input = styled.input`
         color: var(--color-light-gray);
         font-size: 1.6rem;
     }
-`
+`;
 
 const Button = styled.button`
     font-size: 1.8rem;
     font-weight: 600;
-    letter-spacing: .15rem;
+    letter-spacing: 0.15rem;
     color: white;
     padding: 1.2rem 3rem;
     margin-top: 2rem;
@@ -170,9 +168,9 @@ const Button = styled.button`
     outline: none;
     cursor: pointer;
 
-    transition: all .3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 
     &:hover {
         background-color: var(--color-primary-dark);
     }
-`
+`;

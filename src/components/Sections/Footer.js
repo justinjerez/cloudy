@@ -1,16 +1,15 @@
-// Importing dependencies
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
 function Footer() {
     return (
         <FooterSection>
             <p>© Copyright 2021 | Made by Justin Jerez</p>
         </FooterSection>
-    )
+    );
 }
 
-export default Footer
+export default Footer;
 
 const FooterSection = styled.footer`
     text-align: center;
@@ -19,7 +18,7 @@ const FooterSection = styled.footer`
     > p {
         font-size: 2rem;
         font-weight: 500;
-        letter-spacing: .2rem;
+        letter-spacing: 0.2rem;
         color: var(--color-light-gray);
     }
-`
+`;

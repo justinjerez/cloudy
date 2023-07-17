@@ -1,13 +1,10 @@
-// Importing dependencies
-import React, { Fragment } from 'react'
-import styled from 'styled-components'
+import React from 'react';
 
-// Importing components
-import Start from '../Sections/Start'
-import Devices from '../Sections/Devices'
-import Container from '../Layout/Container'
-import TryIt from '../Sections/TryIt'
-import Footer from '../Sections/Footer'
+import Start from '../Sections/Start';
+import Devices from '../Sections/Devices';
+import Container from '../Layout/Container';
+import TryIt from '../Sections/TryIt';
+import Footer from '../Sections/Footer';
 
 function LandingPage() {
     return (
@@ -17,9 +14,7 @@ function LandingPage() {
             <TryIt />
             <Footer />
         </Container>
-    )
+    );
 }
 
-export default LandingPage
-
-
+export default LandingPage;
